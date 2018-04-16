@@ -1,11 +1,8 @@
 #!/usr/bin/env python
 
-try:
-    from setuptools import setup
-except ImportError:
-    from distutils.core import setup
+from setuptools import setup, find_packages
 
-Version = '0.1.2'
+Version = '0.1.3'
 setup(name='django-admin-ip-whitelist',
       version=Version,
       # install_requires='redis',
@@ -13,7 +10,7 @@ setup(name='django-admin-ip-whitelist',
       long_description="django-admin-ip-whitelist is a django middleware app to allow access to /admin by IP addresses",
       author="dvska",
       url="http://github.com/dvska/django-admin-ip-whitelist",
-      packages=['admin_ip_whitelist'],
+      packages=find_packages(),
       license='Apache',
       platforms='Posix; MacOS X;',
       classifiers=[
