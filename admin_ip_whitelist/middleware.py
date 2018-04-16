@@ -67,7 +67,10 @@ class AdminAccessIPWhiteListMiddleware(object):
 
     def is_whitelisted(self, ip):
         # If a whitelist key exists, return True to allow the request through
-        is_whitelisted = cache.get(self.WHITELIST_PREFIX + ip)
+        self.ADMIN_WHITELISTED_IPS = getattr(settings, 'ADMIN_WHITELISTED_IPS', [])
+
+        is_whitelisted = cache.get(self.WHITELIST_PREFIX + ip) or ip in self.ADMIN_WHITELISTED_IPS
+
         if is_whitelisted:
             log.debug("/Admin access IP: " + self.WHITELIST_PREFIX + ip)
         return is_whitelisted
