@@ -2,7 +2,7 @@
 
 from setuptools import setup, find_packages
 
-Version = '0.1.3'
+Version = '0.1.4'
 setup(name='django-admin-ip-whitelist',
       version=Version,
       # install_requires='redis',
